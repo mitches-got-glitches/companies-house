@@ -1,3 +1,3 @@
 GOOGLE_APPLICATION_CREDENTIALS = "~/gcp_keys/companies_house_bq_loader.json"
 GCP_PROJECT = "companies-house-analyser"
-DATASET = "companies_house"
+BQ_DATASET = "companies_house"

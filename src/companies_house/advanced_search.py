@@ -1,9 +1,11 @@
+"""Provide an advanced search"""
+
 import asyncio
 
 import httpx
 import polars as pl
 
-from .companies_house_api import fetch_data
+from companies_house.companies_house_api import fetch_data
 
 
 async def get_advanced_search(params: dict[str | int] = None) -> dict:
@@ -14,14 +16,8 @@ async def get_advanced_search(params: dict[str | int] = None) -> dict:
 
 # Main function to demonstrate the workflow
 async def main(**params) -> pl.DataFrame:
-    try:
-        data = await get_advanced_search(params)
-        return pl.DataFrame(data["items"])
-
-    except httpx.HTTPStatusError as e:
-        print(f"HTTP error occurred: {e}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    data = await get_advanced_search(params)
+    return pl.DataFrame(data["items"])
 
 
 if __name__ == "__main__":
