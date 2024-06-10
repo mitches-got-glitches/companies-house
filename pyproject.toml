@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "companies-house"
+version = "0.1.0"
+description = "Some analysis on companies house data."
+authors = ["mitches-got-glitches <mitch.edmunds@proton.me>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+httpx = "^0.27.0"
+polars = {extras = ["xlsx2csv"], version = "^0.20.31"}
+dynaconf = "^3.2.5"
+pendulum = "^3.0.0"
+pandas = {extras = ["pyarrow"], version = "^2.2.2"}
+google-cloud-bigquery = "^3.24.0"
+
+
+[tool.poetry.group.nb.dependencies]
+ipykernel = "^6.29.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
